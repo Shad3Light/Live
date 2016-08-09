@@ -40,7 +40,7 @@ end
 function c78625592.target(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return true end
 	e:SetLabel(0)
-	if Duel.CheckEvent(EVENT_ATTACK_ANNOUNCE) and tp~=Duel.GetTurnPlayer()
+	if Duel.CheckEvent(EVENT_ATTACK_ANNOUNCE) and Duel.GetAttacker():IsControler(1-tp)
 		and Duel.CheckLPCost(tp,1000) and Duel.SelectYesNo(tp,94) then
 		Duel.PayLPCost(tp,1000)
 		e:SetLabel(1)
@@ -52,7 +52,7 @@ function c78625592.operation(e,tp,eg,ep,ev,re,r,rp)
 	Duel.NegateAttack()
 end
 function c78625592.grcondition(e,tp,eg,ep,ev,re,r,rp)
-	return Duel.GetTurnPlayer()~=tp and (Duel.IsAbleToEnterBP() or Duel.GetCurrentPhase()>=PHASE_BATTLE)
+	return Duel.GetAttacker():IsControler(1-tp) and (Duel.IsAbleToEnterBP() or Duel.GetCurrentPhase()>=PHASE_BATTLE)
 end
 function c78625592.grcost(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return e:GetHandler():IsAbleToRemoveAsCost() end

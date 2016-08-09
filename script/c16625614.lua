@@ -147,7 +147,7 @@ function c16625614.dirtg(e,c)
 end
 
 function c16625614.atkcon(e,tp,eg,ep,ev,re,r,rp)
-	return tp~=Duel.GetTurnPlayer()
+	return Duel.GetAttacker():IsControler(1-tp)
 end
 function c16625614.atktg(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return true end

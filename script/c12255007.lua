@@ -25,7 +25,7 @@ function c12255007.initial_effect(c)
 end
 
 function c12255007.condition(e,tp,eg,ep,ev,re,r,rp)
-	return tp~=Duel.GetTurnPlayer()
+	return eg:GetFirst():IsControler(1-tp)
 end
 function c12255007.cost(e,tp,eg,ep,ev,re,r,rp,chk)
 	if chk==0 then return Duel.CheckReleaseGroup(tp,Card.IsSetCard,1,nil,0x9f) end

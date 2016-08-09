@@ -31,7 +31,7 @@ function c8706701.initial_effect(c)
 end
 
 function c8706701.thcon1(e,tp,eg,ep,ev,re,r,rp)
-  return Duel.GetTurnPlayer()~=tp
+  return Duel.GetAttacker():IsControler(1-tp)
 end
 function c8706701.thcost(e,tp,eg,ep,ev,re,r,rp,chk)
   if chk==0 then return e:GetHandler():IsAbleToGraveAsCost() end
